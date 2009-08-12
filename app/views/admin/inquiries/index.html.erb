@@ -1,0 +1,42 @@
+<h1>Contact Us Forms</h1>
+<h4>This is a list of all the Contact Us forms submitted on the site. You also receive copies of these inquiries by email.</h4>
+
+<table class="admin-report" width="545">
+	<thead>
+		<tr>
+      		<th>Name</th>
+      		<th>Email</th>
+      		<th>Type</th>
+					<th>Order #</th>
+					<th>message</th>
+					<th></th>
+    	</tr>
+  	</thead>
+	
+	<tbody>
+    	<% @inquiries.each do |inquiry| %>
+		<tr class="<%= cycle('even', 'odd') %>">
+			<td>
+				<%= inquiry.name %>
+			</td>
+			<td>
+				<%= inquiry.email %>
+			</td>
+			<td>
+				<%= inquiry.inquiry_type %>
+			</td>
+			<td>
+				<%= inquiry.order_no %>
+			</td>
+			<td>
+				<%=h truncate(inquiry.message, 100) %>
+			</td>
+			<td>
+				<%= link_to "Check it", object_url(inquiry) %> | 
+	      <%=link_to "Delete it", object_url(inquiry), :method => :delete %>
+	     </td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+

@@ -1,0 +1,23 @@
+<h1>Contact Us Form</h1>
+
+
+			<p>
+				Name: <%= @inquiry.name %>
+			</p>
+			<p>
+				Email: <%= @inquiry.email %>
+			</p>
+			<p>
+				Type: <%= @inquiry.inquiry_type %>
+			</p>
+			<p>
+				Order Number: <%= @inquiry.order_no %>
+			</p>
+			<p>
+				Message: <%=h @inquiry.message %>
+			</p>
+			<p>
+	<%= link_to "Back", collection_url %> |      
+	<%=link_to t("delete"), object_url(@inquiry), :method => :delete %>
+	     </p>
+		</tr>
